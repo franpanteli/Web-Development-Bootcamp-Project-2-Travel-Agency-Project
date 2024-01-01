@@ -1,0 +1,917 @@
+/* /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: CSS STRUCTURE 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* <!-- 
+    The structure of this html file is as follows 
+    1 GENERAL 
+    2 FOR THE CARDS WHICH HOLD THE DIFFERENT HOTELS IN THEM
+    3 FOR THE NAV BAR
+    4 FOR THE CONTAINER AROUND ACCOMMODATION AND POPULAR 
+    5 CONTAINERS FOR THE 'paris-accommodation' HOTEL DESCRIPTIONS (TITLE / COST AND RATING)
+    6 THINGS TO DO IN PARIS
+    7 FILTERS 
+    8 PART AFTER NAV BAR AND BEFORE THE 'PARIS ACCOMMODATION' AND 'MOST POPULAR' FILTERS 
+    9 MOUSE EFFECTS 
+    10 FOOTER
+    11 MEDIA QUERIES
+    12 CSS CODE SANDBOX 
+ -->
+
+<!-- Please refer to the master html document for more information pertaining to the project task
+ --> */ 
+
+ /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: CSS STRUCTURE 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000-->
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: GENERAL 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+   
+/* below - this ensures the fonts aren't Times New Roman */
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+    /* below - this css sets the colour scheme */
+:root {
+    --main-color: #0065FC;
+    --main-bg-color: #F2F2F2;
+    --filter-bg-color: #DEEBFF;
+}
+
+.fa-solid {
+    color: var(--main-color);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 22px;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: GENERAL 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111  */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: FOR THE CARDS WHICH HOLD THE DIFFERENT HOTELS IN THEM 22222222222222222222222222222222222222222222222222222222222222222222222222222 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+    /* below - this formats the cards which hold the different hotels in them */
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    cursor: pointer;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.euro {
+    font-weight: 700;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: FOR THE CARDS WHICH HOLD THE DIFFERENT HOTELS IN THEM 2222222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: FOR THE NAV BAR 333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+     /* below - this spreads apart the nav elements */
+        /* using nav {} not .nav {} because nav is not a class, it's a semantic html tag */
+        /* spreading apart the elements in the list - we're making them align in a row, and then 
+        spreading out the elements in a container */
+    nav {
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+    /* below - css for the Booki logo on the top LHS of the webpage */
+nav img {
+    padding: 30px 50px 30px 0px;  
+}
+
+    /* below - this is for the 'accommodation' and 'things to do' section of the nav bar
+        -> the navigation class includes the 'Accommodation' and 'Things to do' elements
+            -> these are contained in a class called nav-element 
+        -> the CSS below is organising these elements using flexbox
+            -> spacing them out evenly
+            -> this is also defined as a percentage of the larger nav bar
+                -> this is so that the element can withstand page resizing within a breakpoint
+                -> height: fit-content is making sure that the link is only available in the hover state 
+                    while the mouse is over the text (not otherwise)
+        -> so 
+            navigation <- this class is for the accommodation and things to do elements
+            nav <- for the entire bar 
+            nav-element <- either accommodation or things to do elements 
+        */    
+.navigation {
+    font-size: 16px;
+    display: flex;   
+    height: fit-content;
+}
+
+    /* below - this is making sure the bottom margin of the container around the 
+        nav element has no margin along its bottom (the link a > nav element class 
+        > p with the content */
+.navigation a .nav-element p {
+    margin-bottom: 0;
+}
+
+    /* below - this is removing the underline on the hyperlinks which wrap around 
+        "Accomodation" and "Things to do" in the nav bar 
+        -> it also makes the links black (the default for hyperlinks is a purple tone) */
+.navigation a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 68px;    
+}
+
+    /* below - this is targeting 
+        -> the navigation class (accommodation / things to do elements)
+        -> the links surrounding those sections, when in their hover states
+        -> then the accommodation / things to do elements themselves 
+        And
+            -> is adding a blue width above those classes
+            -> and changing the text colour when the relevant nav-element container
+                (for Accommodation / Things to do) is in its hover state */
+.navigation a:hover .nav-element {
+    border-top: 2px solid #0065FC;
+    color: #0065FC;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: FOR THE NAV BAR 333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: FOR THE CONTAINER AROUND ACCOMMODATION AND POPULAR 444444444444444444444444444444444444444444444444444444444444444444444444444444  */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+    /* below - this stacks the two sections on top of each other */
+.accommodation-and-popular {
+    display: flex;
+    justify-content: space-between;
+}
+
+    /* below - this is for the beige cards which are behind the 'Paris accommodation' and 'Most popular' sections */
+.accommodation-and-popular section {
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/****** Accommodation ***********/
+
+            /* below - this contains three cards per row on the Paris accommodation section */
+.image-size {
+    /* width: 250.33px; */
+    width: 100%;
+    height: 124px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+    /* below - this ensures that the stars, hotel name and description fit in the same card */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: FOR THE CONTAINER AROUND ACCOMMODATION AND POPULAR 4444444444444444444444444444444444444444444444444444444444444444444444444444444444444 */ 
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: CONTAINERS FOR THE 'paris-accommodation' HOTEL DESCRIPTIONS (TITLE / COST AND RATING) 55555555555555555555555555555555555555555555 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+    /* ASSOCIATED CHALLENGES WHEN DOING THIS WERE:
+    -> The main challenge associated with configuring this container was the margin-reset feature
+    -> The margins of the paragraph and <h3> tag in HTML were preventing the elements from fitting within their container.
+    -> This was solved by adding another class called margin-reset and identifying which elements were contributing to the issue.
+    -> The paris-accommodation-hotel-description-container is the container for all of these elements (the h3 / description / stars below a given hotel in the Paris accommodation section of the webpage)
+    -> The margin-reset feature is a class defined which targets the paragraph and <h3> headings in these sections - to enable all elements to fit within the required paris-accommodation-hotel-description-container containers
+    */
+
+
+    /* below - this class defines the container for the 'Paris-accommodation' hotel descriptions (title / cost and rating) */
+        /*  -> this ensures the padding around the hotel descriptions */
+.paris-accommodation-hotel-description-container {
+    /* width: 250.33px; */
+    width: 100%;
+    height: 64.25px;
+    padding: 5px 0px 0px 19px;
+    margin-right: 2px;
+}
+
+    /* below - 'paris-accommodation' HOTEL DESCRIPTIONS (TITLE / COST AND RATING) FOR SETTING 
+    THE MARGINS OF H3 AND PARAGRAPH ELEMENTS TO 0, SO ALL THREE ELEMENTS FIT IN THE SAME CONTAINER: */
+.margin-reset {
+    margin: 8px 0;
+    /*
+       (Above) this is shorthand for
+        margin-bottom: 8px;
+        margin-top: 8px; 
+     */
+    width: 220.33px;
+    height: 16px;
+    width: 100%;
+}
+
+    /* below - this adds space around the Paris accommodation title and others */
+.paris-accomodation-title {
+    width: 811px;
+    height: 26px;
+    /* background-color: fuchsia; */
+    margin: 0 0 35px 0;
+}
+
+    /****** MOST POPULAR *****************************************************/
+
+        /* below - this makes sure the width of the Paris accommodation card doesn't take up the entire width of the page
+            - gap in between it and the Most popular card */
+.popular {
+    width: 32%;
+}
+
+        /* below - for the icon to the right of the Most popular title and the text for the title (flexbox so they fit on 
+        one line) */
+.popular-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+        /* below - ensuring the popular cards are all on the same row */
+.popular-cards .card {
+    display: flex;
+}
+
+.popular-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 498px;
+    margin-top: 30px;
+}
+
+    /* below - this ensures that the Most popular cards take up the right size on the page,
+        according to the Figma specifications */
+.popular-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+    /* below - this ensures that the space in between the image and the card content is such that the 
+    two are evenly spaced, and not pushed next to each other */
+.popular-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+    /* below - this sets the margin on the top of the hotel names under Most popular */
+.popular-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+    /* below - this is getting rid of the margin on the subtitle text in the cards for Most popular
+        -> this forces the title and subtitle text to be closer together when stacked vertically */
+.popular-cards .card-subtitle {
+    margin: 0;
+}
+
+.card-subtitle {
+    color: black;
+    font-size: 14px;
+    font-family: Raleway;
+    font-weight: 400;
+}
+
+#Lumière {
+    font-weight: 600;
+}
+
+    /* below - this is the CSS for the stars in the "most popular" section of the webpage */
+.card-rating {
+    margin-bottom: 5px;
+}
+
+    /* below - this is for the grey edition of the star */
+.grey-version {
+    color: #F2F2F2;
+}
+
+
+.pa-card-updated {
+    background-color: white;
+    border-radius: 20px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.pa-card-updated img {
+    object-fit: cover;
+}
+
+.image-size-updated {
+    /* width: 250.33px; */
+    width: 100%;
+    height: 124px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 5px;
+}
+
+.pa-card-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pa-card-box img {
+    height: 114px;
+    width: 96.0052730396%;
+    border: 5px;
+
+}
+
+.paris-accom-hotel-description-container {
+    width: 100%;
+    height: 64.25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    margin-top: 4px;
+}
+
+.paris-accom-hotel-description-container h3, 
+.paris-accom-hotel-description-container p, 
+.container-around-PAccom-hotel-stars {
+    margin: 0px;
+    margin-left: 15px;
+    color: black;
+    font-family: Raleway;
+}
+
+.paris-accom-hotel-description-container h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.paris-accom-hotel-description-container p {
+    font-size: 14px;
+}
+
+.font-weight-six-h {
+    font-weight: 600;
+    color: black; 
+}
+
+.link-format-for-PAccom-cards {
+    text-decoration: none;
+    width: 30.8668310727%;
+    height: 100%;
+    display: flex;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #000;
+}
+
+.link-format-for-PAccom-cards:active {
+    color: inherit;
+}
+
+.PAccom-container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: stretch;
+    width: 100%;
+    height: 207.25px;
+}
+
+
+#Paris-accommodation-header, #show-more-pa {
+    margin: 0px;
+    width: 100%;
+    font-weight: 700;
+    font-family: Raleway;
+    color: black;
+}
+
+#Paris-accommodation-header {
+    font-size: 22px;
+}
+
+#show-more-pa {
+    color: black;
+    font-size: 18px;
+}
+ 
+.paris-accommodation-container-updated {
+    height: 622.5px;
+    width: 65%;
+    background-color: #F2F2F2;
+    border-radius: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-right: 40px;
+    /* height: 614px; */
+}
+
+.grey-edition {
+    color: #F2F2F2;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: CONTAINERS FOR THE 'paris-accommodation' HOTEL DESCRIPTIONS (TITLE / COST AND RATING) 55555555555555555555555555555555555555555555555555 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: THINGS TO DO IN PARIS 666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+    /* below - this forces the cards onto one line */
+.container-around-things-to-do {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 439px;
+    font-size: 16px;
+    border: #0065FC;
+    border-width: 200px;
+}
+
+    /* below - the purpose of the padding = 0 here is to stop the h3 headings from taking up more space above than below their default positions,
+    thereby enabling them to be in the centre of their prospective subtitle sections */
+.things-to-do-card {
+    width: 22.2%;
+    padding: 0px;
+}
+
+    /* below - this sets the height of the images in the Things to do in Paris section */
+.things-to-do-images {
+    height: 380px;
+}
+
+    /* below - this is the container which spreads out the Things to do in Paris section from the footer section */
+.cont {
+    border-width: 100px;
+    margin-top: 68.4px;
+    padding: 30px;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: THINGS TO DO IN PARIS 666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: FILTERS 77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* INDIVIDUAL FILTER BUTTONS */
+.button {
+    /* height: 50px;  */
+    border-radius: 25px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+    padding: 4px 19px;
+    margin-right: 15px;
+}
+
+.button svg {
+    margin-right: 10px;
+}
+
+.button p {
+    margin: 11px 0px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: #DEEBFF;
+}
+
+/* COMBINING THE FILTER BUTTONS */
+.filters {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin-right: 15px;
+}
+    
+    /* below - this is for the text which says 'Filters' */
+#filters {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 15px;
+}         
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: FILTERS 77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* START: PART AFTER NAV BAR AND BEFORE THE 'PARIS ACCOMMODATION' AND 'MOST POPULAR' FILTERS 888888888888888888888888888888888888888888888888888 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* below - this is for the "there are over 500 accommodation options in this city" section */
+.information-bar {
+    width: 100%;
+    height: 19px;
+    display: flex;
+    align-items: center;
+}
+
+.information-bar p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+    /* the i with a circle in it */
+.information-bar svg {
+    margin-right: 10px; /* Add spacing between the text and the icon */
+}
+    
+    /* below - css for the text before the search bar 
+    "Find accommodation for your dream holiday" */
+#text-before-search-bar-top {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    /* (above) this is shorthand for 0px margin and 8px bottom margin */
+    cursor: default
+}
+
+/* below - id for "In the heart of the city or surrounded by nature" */
+#text-before-search-bar-bottom {
+    margin: 0px;
+    font-size: 16px;
+    cursor: default
+}
+
+/* below - container for the whole search bar 
+    -> around the three containers in the search bar */
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    border-width: 10px;
+    border-color: #F2F2F2; 
+}
+
+/* below - the grey box which contains the svg in the search bar */
+.grey-box {
+    background-color: #F2F2F2;
+    border: 1px solid #F2F2F2;
+    border-radius: 15px 0px 0px 15px;
+    padding: 15px 18px 16px 18px;
+}
+
+/* below - this centres the svg in that container */
+
+/* below - this is for the section after the nav bar (the container around it) */
+.section-after-nav-bar {
+    height: 281px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+/* below - this is for the white portion of the search bar */
+.search-input-container-dsb {
+    /* border-radius: 4px; */
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    /* below - this is the padding in between the input container and the edges to the left and the right of it */
+    padding: 0px 24px;
+}
+
+/* below - this is for the blue portion of the search bar */
+.search-button-container-dsb {
+    height: 49px;
+    background: #0065FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 15px 15px 0px;
+    color: white;
+    font-size: 18px;
+    font-family: Raleway;
+    font-weight: 700;
+    word-wrap: break-word;
+    box-shadow: none;
+    padding: 0px 16px;
+    border-top: 1px solid #0065FC;
+    border-bottom: 1px solid #0065FC;
+}
+
+/* below - this is the container around Paris, France and Search (a container around the white and blue portion of the 
+search bar) */
+
+/* below - this is the id for the container around the search element */
+#infinite-searchbox {
+    padding: 0px;
+    /* width: 79.5%; */
+    /* (above) this number was the calculated percentage assuming that the input field was 
+    justified right and the width of the box was such that the inputted text aligned in the same 
+    way on Figma before text was inputted
+    (below) this percentage is the percentage width of the input field as a function of the width of the 
+    white part in the middle of the search bar, when the content in the middle part of the white part is
+    justified center not right - the percentage width commented out above is the right one if all of the 
+    content in the input field is justifed right - both produce the same look in Figma, but one is justified 
+    center and the other right (center is the desired) */
+    /* height: 21px; */
+    border: 1px solid white;
+    /* outline: 2px solid blue;  */
+    /* Set the outline to a red color */
+/* -> it's an infinite input form which is housed in a div container */
+    font-size: 18px;
+    color: #000;
+    line-height: 21.13px;
+    font-weight: 700;
+    /* padding: 1px 0px 2px 0px; */
+    margin: 13px 0px;
+    width: 110px;
+}
+
+/* below - this is formatting the 'Paris, France' placeholder text in the search bar */
+
+/* below - this is for the focus state of the infinite search box
+-> normal state - not clicked on/ default
+-> hover state - while it's being hovered over
+-> active state - while it's being clicked on 
+-> focus state - while it has keyboard focus */
+#infinite-searchbox:focus {
+    padding: 0px;
+    height: 21px;
+    outline: none;
+    font-size: 18px;
+    display: flex;
+}
+
+/* below - this is the id for the hyperlink around the blue 'Search' element in the search bar */
+#link-around-blue-search-button {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 0px 15px 15px 0px;
+    height: fit-content;
+}
+
+/* below - the css makes the placeholder text black in the search bar */
+#infinite-searchbox::placeholder {
+    color: black;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: PART AFTER NAV BAR AND BEFORE THE 'PARIS ACCOMMODATION' AND 'MOST POPULAR' FILTERS 88888888888888888888888888888888888888888888888888888 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* START: MOUSE EFFECTS 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+    /* below - this effect is to make the mouse change when it is hovering over a given element */
+.mouse-effect {
+    cursor: pointer;
+}
+
+    /* below - this effect is to prevent the mouse from changing into a cursor as it hovers over text on the webpage */
+.mouse-effect-for-non-links {
+    cursor: default;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: MOUSE EFFECTS 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* BEGINNING: FOOTER 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10  */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* below - this is the beige container around the footer */
+footer {
+    background-color: #F2F2F2;
+    height: 163px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-top: 35px;
+}
+
+    /* below - these are the containers for the 'About', 'Our accommodation' and 'Support' parts of the footer */
+
+    /* below - this arranges the elements in the footer so that the footer text aligns along each third of the footer */
+.footer-third-container {
+    width: 33%;
+    padding: 20px;
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px;
+}
+
+    /* below - this aligns targets 'About', 'Our accommodation' 'Support' sections in the footer and aligns them vertically */
+.top-footer-element {
+    margin: 0px;
+    font-size: 18px;
+    height: 21px;
+    margin-bottom: 15px;
+}
+
+    /* below - this formats the middle footer elements */
+.middle-footer-element {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    height: 19px;
+}
+
+    /* below - this formats the last footer elements, according to how much margin is required around them
+        -> this class was used across all thirds of the footer */
+.last-footer-element {
+    margin: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    height: 19px;
+}
+    
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: FOOTER 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* START: MEDIA QUERIES 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+
+/* below - this fixes the width of the content and centres it as the page expands, so that the extra space given by the page expansion is added
+            to the margins and not its content */
+@media all and (min-width: 1440px) {
+    body { 
+        width: 1440px;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+} 
+
+/* below - all of the media takes up 100% of the page below the 1440px breakpoint */
+@media all and (max-width: 1440px) {
+    body { 
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;  
+    }
+} 
+
+/* below - controls the behaviour of the page below the 1024px breakpoint
+    -> we have not been asked to consider the behaviour of the webpage below this breakpoint as this is in the mobile regime
+    -> the searchbar was given in two forms (a desktop and mobile version)
+    -> and therefore the mobile version was neglected
+    -> the webpage has been styled with a green background below this breakpoint, as this is indicates the region below which we have
+        not been asked to consider its bebehaviour
+    -> max-width has been used here as the minimum width we want the new page styling to occur as the page expands is 1025px */
+@media all and (max-width: 1024px) {
+    body { 
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;  
+        /* background-color: rgb(255, 0, 0); */
+        /* background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); */
+        /* background: radial-gradient(circle, violet, indigo, blue, green, yellow, orange, red); */
+        /* background: linear-gradient(to bottom right, #ff7eb3, #ff3f80); */
+    }
+} 
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* END: MEDIA QUERIES 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* START: CSS CODE SANDBOX 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Insert test css here */
+.behave-like-block-not-inline-element-for-links {
+    /* below - this makes sure the links behave like block, rather than inline elements - or the widths become funny */
+    display: inline-block; 
+    /* below - this gets rid of the underlines on the links */
+    text-decoration: none;
+    color: inherit;
+    margin-right: 30px;
+    border-radius: 20px;
+}
+
+#notre-dame-card {
+    margin-right: 0px;
+    /* below - this makes sure the font of the Notre-dam card is the same size as the mockup, and that its size reduces 
+    so that before we get to the mobile breakpoint, its subtitle text still fits */
+    flex-shrink: 0.6;
+}
+
+#eiffel-tower-card {
+    flex-shrink: 0.95;
+}
+
+    /* below - so that divs nested inside links take up 100% of the width that they used to (to stop their sizes from changing
+        when <a> links are placed around them) */
+.take-up-entire-width-for-elements-inside-links {
+    width: 100%;
+    height: 100%;
+}
+
+.behave-like-block-not-inline-element-for-links-mp {
+    /* below - this makes sure the links behave like block, rather than inline elements - or the widths become funny */
+    display: inline-block; 
+    /* below - this gets rid of the underlines on the links */
+    text-decoration: none;
+    color: inherit;
+    border-radius: 20px;
+}
+
+    /* below - so that divs nested inside links take up 100% of the width that they used to (to stop their sizes from changing
+        when <a> links are placed around them) */
+
+    /* below - the content within the Lumiere card takes up less width of the card in comparison to the two other Most popular cards,
+        and therefore it was targeted with its own id in order to resize it (although this was not necessary for the other two 
+        Most popular cards, as the width of their content was sufficient for their cards to take up the required width of their larger
+        containing div) */
+
+
